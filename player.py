@@ -5,12 +5,16 @@ import pygame
 class Player (CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, radius=pygame.constants.PLAYER_RADIUS) # Use the PLAYER_RADIUS constant
-        rotation = 0  
+        self.rotation = 0
     
-    def triangle(self):
-        forward = pygame.Vector2(0, 1).rotate(self.rotation)
-        right = pygame.Vector2(0, 1).rotate(self.rotation + 90) * self.radius / 1.5
-        a = self.position + forward * self.radius
-        b = self.position - forward * self.radius - right
-        c = self.position - forward * self.radius + right
+    def triangle(self): # Returns the vertices of the triangle representing the player
+        # Calculate the vertices of the triangle based on the player's position and rotation
+        forward = pygame.Vector2(0, 1).rotate(self.rotation) # Forward direction based on rotation
+        right = pygame.Vector2(0, 1).rotate(self.rotation + 90) * self.radius / 1.5 # Right direction perpendicular to forward
+        a = self.position + forward * self.radius # Forward vertex
+        b = self.position - forward * self.radius - right # Backward vertex
+        c = self.position - forward * self.radius + right # Right vertex
         return [a, b, c]
+    
+    def draw(self, screen):
+        pygame.draw.polygon(screen, (255, 255, 255), self.triangle(), 2)  # Draw the player as a triangle on the screen
