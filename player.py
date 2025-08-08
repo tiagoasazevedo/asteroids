@@ -20,3 +20,6 @@ class Player (CircleShape):
     
     def draw(self, screen):
         pygame.draw.polygon(screen, (255, 255, 255), self.triangle(), 2)  # Draw the player as a triangle on the screen
+
+    def rotate(self, dt): # Rotate the player based on the time delta
+        self.rotation += PLAYER_TURN_SPEED * dt  # Use the PLAYER_TURN_SPEED constant
