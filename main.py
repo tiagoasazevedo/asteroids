@@ -24,12 +24,12 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
         dt = clock.tick(60) / 1000.0  # calculate the time delta in seconds
-        player.update(dt) # update the player based on the time delta
+        updatable.update(dt)  # update all updatable objects
 
-
-    updatable = pygame.sprite.Group()  # create a group to hold all updatable objects
-    drawable = pygame.sprite.Group()  # create a group to hold all drawable objects
-    Player.containers = updatable, drawable  # set the containers for the Player class
+        screen.fill((0, 0, 0))  # clear the screen
+        for sprite in drawable:
+            sprite.draw(screen)
+        pygame.display.flip()  # update the display
 
     pygame.quit() # clean up and close the game window
 
