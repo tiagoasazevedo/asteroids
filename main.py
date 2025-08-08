@@ -21,6 +21,7 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
         dt = clock.tick(60) / 1000.0  # calculate the time delta in seconds
+        player.update(dt) # update the player based on the time delta
 
     pygame.quit()
 
