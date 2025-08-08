@@ -1,6 +1,7 @@
+import pygame   # this allows us to use code from the open-source pygame library throughout this file
+
 from circleshape import * # import all classes and functions from the circleshape module
 from constants import *  # import all constants from the constants module
-import pygame   # this allows us to use code from the open-source pygame library throughout this file
 
 # Player class
 class Player (CircleShape):
