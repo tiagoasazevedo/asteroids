@@ -24,9 +24,8 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
         dt = clock.tick(60) / 1000.0  # calculate the time delta in seconds
-        updatable.update(dt)  # update all updatable objects
-
-        screen.fill((0, 0, 0))  # clear the screen
+        updatable.update(dt)  # update all updatable objects with the time delta
+        screen.fill((0, 0, 0))  # fill the screen with black color
         for sprite in drawable:
             sprite.draw(screen)
         pygame.display.flip()  # update the display
