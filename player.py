@@ -23,3 +23,11 @@ class Player (CircleShape):
 
     def rotate(self, dt): # Rotate the player based on the time delta
         self.rotation += PLAYER_TURN_SPEED * dt  # Use the PLAYER_TURN_SPEED constant
+    
+    def update(self, dt):
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_a]:
+            # ?
+        if keys[pygame.K_d]:
+            # ?
