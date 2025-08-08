@@ -21,13 +21,13 @@ def main():
     running = True
     while running:
         for event in pygame.event.get():  # this checks for events like key presses or window close requests
-            if event.type == pygame.QUIT:
-                running = False
+            if event.type == pygame.QUIT: # if the window close button is pressed
+                running = False # stop the game loop
         dt = clock.tick(60) / 1000.0  # calculate the time delta in seconds
         updatable.update(dt)  # update all updatable objects with the time delta
         screen.fill((0, 0, 0))  # fill the screen with black color
-        for sprite in drawable:
-            sprite.draw(screen)
+        for sprite in drawable:  # iterate through all drawable objects
+            sprite.draw(screen)  # draw each object on the screen
         pygame.display.flip()  # update the display
 
     pygame.quit() # clean up and close the game window
