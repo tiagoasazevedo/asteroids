@@ -9,12 +9,12 @@ def main():
     print("Starting Asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))  # create a window with the specified dimensions
-    Player.__init__(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)  # create a Player object at the center of the screen
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)  # create a Player object at the center of the screen
 
     running = True
     while running:
         screen.fill((0, 0, 0))  # fill the screen with black color
-        Player.draw(screen)  # draw the player on the screen
+        player.draw(screen)  # draw the player on the screen
         pygame.display.flip()  # update the display to show the changes made to the screen
         for event in pygame.event.get():  # this checks for events like key presses or window close requests
             if event.type == pygame.QUIT:
