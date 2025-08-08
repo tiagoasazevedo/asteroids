@@ -5,7 +5,7 @@ import pygame   # this allows us to use code from the open-source pygame library
 # Player class
 class Player (CircleShape):
     def __init__(self, x, y):
-        super().__init__(x, y, radius=pygame.constants.PLAYER_RADIUS) # Use the PLAYER_RADIUS constant
+        super().__init__(x, y, radius=PLAYER_RADIUS) # Use the PLAYER_RADIUS constant
         self.rotation = 0
     
     def triangle(self): # Returns the vertices of the triangle representing the player
