@@ -13,3 +13,8 @@ class Shot(CircleShape):
         self.position += self.velocity * dt
         if self.position.y < 0:
             self.kill()  # remove shot if it goes off screen
+
+    def shoot(self): # Create a new shot and add it to the game
+        shot = Shot(self.position.x, self.position.y)
+        shot.velocity = self.velocity.rotate(self.rotation)
+        return shot

@@ -9,6 +9,7 @@ class Player (CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, radius=PLAYER_RADIUS) # Use the PLAYER_RADIUS constant
         self.rotation = 0
+        self.shots = []  # List to store active shots
     
     def triangle(self): # Returns the vertices of the triangle representing the player
         # Calculate the vertices of the triangle based on the player's position and rotation
@@ -36,7 +37,7 @@ class Player (CircleShape):
             self.move(dt)
         if keys[pygame.K_s]:
             self.move(-dt)
-    
+
     def move(self, dt):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         self.position += forward * PLAYER_SPEED * dt
