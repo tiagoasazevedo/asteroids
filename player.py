@@ -2,6 +2,7 @@ import pygame   # this allows us to use code from the open-source pygame library
 
 from circleshape import * # import all classes and functions from the circleshape module
 from constants import *  # import all constants from the constants module
+from shots import Shot  # import the Shot class from the shots module
 
 # Player class
 class Player (CircleShape):

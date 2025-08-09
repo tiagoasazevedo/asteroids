@@ -1,10 +1,10 @@
-
 import pygame # this allows us to use code from the open-source pygame library throughout this file
 
 from player import Player  # import the Player class from the player module
 from constants import * # import all constants from the constants module
 from asteroid import Asteroid  # import the Asteroid class from the asteroid module
 from asteroidfield import AsteroidField  # import the AsteroidField class from the asteroidfield module
+from shots import Shot  # import the Shot class from the shots module
 
 # Main function to run the game
 def main():
@@ -29,6 +29,9 @@ def main():
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)  # create a Player object at the center of the screen
     asteroid_field.add(AsteroidField())  # add an instance of AsteroidField to the group
 
+    shots = pygame.sprite.Group()  # create a group to hold all shot objects
+    Shot.containers = shots, updatable, drawable  # set the containers for the Shot class
+
     running = True
     while running:
         for event in pygame.event.get():  # this checks for events like key presses or window close requests
@@ -37,7 +40,7 @@ def main():
         dt = clock.tick(60) / 1000.0  # calculate the time delta in seconds
         updatable.update(dt)  # update all updatable objects with the time delta
         for sprite in asteroids:  # iterate through all asteroid sprites
-            sprite.update(dt)
+            sprite.update(dt) # update each asteroid's position based on its velocity and the time delta
             if sprite.collision(player): # check for collision with player
                 print("Game over!")
                 return pygame.quit() # kill game if asteroid collides with player
