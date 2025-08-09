@@ -14,7 +14,5 @@ class Shot(CircleShape):
         if self.position.y < 0:
             self.kill()  # remove shot if it goes off screen
 
-    def shoot(self): # Create a new shot and add it to the game
-        shot = Shot(self.position.x, self.position.y) # Create a new shot at the player's position
-        shot.velocity = self.velocity.rotate(self.rotation) # Set the shot's velocity based on the player's rotation
-        return shot # Return the created shot
+    def draw(self, screen): # Draw the shot on the screen
+        pygame.draw.circle(screen, (255, 255, 255), (int(self.position.x), int(self.position.y)), self.radius)
