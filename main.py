@@ -1,7 +1,9 @@
+
 import pygame # this allows us to use code from the open-source pygame library throughout this file
 
 from player import Player  # import the Player class from the player module
 from constants import * # import all constants from the constants module
+from asteroid import Asteroid  # import the Asteroid class from the asteroid module
 
 # Main function to run the game
 def main():
@@ -15,6 +17,9 @@ def main():
     updatable = pygame.sprite.Group()  # create a group to hold all updatable objects
     drawable = pygame.sprite.Group()  # create a group to hold all drawable objects
     Player.containers = updatable, drawable  # set the containers for the Player class
+
+    asteroids = pygame.sprite.Group()  # create a group to hold all asteroid objects
+    Asteroid.containers = asteroids, updatable, drawable  # set the containers for the Asteroid class
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)  # create a Player object at the center of the screen
 
