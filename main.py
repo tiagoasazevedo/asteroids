@@ -37,7 +37,7 @@ def main():
         for event in pygame.event.get():  # this checks for events like key presses or window close requests
             if event.type == pygame.QUIT: # if the window close button is pressed
                 running = False # stop the game loop
-        dt = clock.tick(60) / 1000.0  # calculate the time delta in seconds
+        dt = clock.tick(60) / 1000.0  # calculate the time delta in milliseconds since the last frame, limiting to 60 FPS
         updatable.update(dt)  # update all updatable objects with the time delta
         for sprite in asteroids:  # iterate through all asteroid sprites
             sprite.update(dt) # update each asteroid's position based on its velocity and the time delta
