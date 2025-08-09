@@ -45,6 +45,6 @@ class Player (CircleShape):
 
     def shoot(self): # Create a new shot and add it to the game
         shot = Shot(self.position.x, self.position.y) # Create a new shot at the player's position
-        shot.velocity = pygame.Vector2(0, -PLAYER_SHOT_SPEED).rotate(self.rotation)
+        shot.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOT_SPEED 
         shot.add(*Shot.containers)  # Add the shot to the appropriate sprite groups
         return shot
