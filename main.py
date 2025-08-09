@@ -24,8 +24,10 @@ def main():
 
     asteroid_field = pygame.sprite.Group()  # create a group to hold the asteroid field
     AsteroidField.containers = updatable  # set the containers for the AsteroidField class
+    
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)  # create a Player object at the center of the screen
+    asteroid_field.add(AsteroidField())  # add an instance of AsteroidField to the group
 
     running = True
     while running:

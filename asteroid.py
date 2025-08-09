@@ -1,3 +1,5 @@
+import pygame  # import the pygame module for game development
+
 from circleshape import CircleShape
 
 class Asteroid(CircleShape): # Inherit from CircleShape
