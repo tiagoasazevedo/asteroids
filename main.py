@@ -33,7 +33,7 @@ def main():
     Shot.containers = shots, updatable, drawable  # set the containers for the Shot class
 
     running = True
-    while running:
+    while running:  # main game loop
         for event in pygame.event.get():  # this checks for events like key presses or window close requests
             if event.type == pygame.QUIT: # if the window close button is pressed
                 running = False # stop the game loop
@@ -41,6 +41,11 @@ def main():
         updatable.update(dt)  # update all updatable objects with the time delta
         for sprite in asteroids:  # iterate through all asteroid sprites
             sprite.update(dt) # update each asteroid's position based on its velocity and the time delta
+            for shot in shots:  # iterate through all shot sprites
+                if sprite.collision(shot):  # check for collision between asteroid and shot
+                    sprite.kill()  # remove the asteroid
+                    shot.kill()  # remove the shot
+                    break  # stop checking for more collisions
             if sprite.collision(player): # check for collision with player
                 print("Game over!")
                 return pygame.quit() # kill game if asteroid collides with player
