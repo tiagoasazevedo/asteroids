@@ -36,6 +36,11 @@ def main():
                 running = False # stop the game loop
         dt = clock.tick(60) / 1000.0  # calculate the time delta in seconds
         updatable.update(dt)  # update all updatable objects with the time delta
+        for sprite in asteroids:  # iterate through all asteroid sprites
+            sprite.update(dt)
+            if sprite.collision(player): # check for collision with player
+                print("Game over!")
+                return pygame.quit() # kill game if asteroid collides with player
         screen.fill((0, 0, 0))  # fill the screen with black color
         for sprite in drawable:  # iterate through all drawable objects
             sprite.draw(screen)  # draw each object on the screen
