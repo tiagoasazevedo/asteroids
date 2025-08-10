@@ -18,6 +18,24 @@ class Asteroid(CircleShape): # Inherit from CircleShape
 
     def split(self):
         if self.radius <= ASTEROID_MIN_RADIUS:
-            self.kill()  # Remove the asteroid if it is too small
-            return  # Do not split if the asteroid is too small
-        
+            self.kill()
+            return
+
+        # Calculate new radius
+        new_radius = self.radius - ASTEROID_MIN_RADIUS
+
+        # Create two new velocities, rotated in opposite directions and faster
+        angle = random.uniform(20, 50)
+        v1 = self.velocity.rotate(angle) * 1.2
+        v2 = self.velocity.rotate(-angle) * 1.2
+
+        # Create two new asteroids at the same position
+        a1 = Asteroid(self.position.x, self.position.y, new_radius)
+        a1.velocity = v1
+        a1.add(*self.containers)
+
+        a2 = Asteroid(self.position.x, self.position.y, new_radius)
+        a2.velocity = v2
+        a2.add(*self.containers)
+
+        self.kill()  # Remove the original asteroid

@@ -43,7 +43,7 @@ def main():
             sprite.update(dt) # update each asteroid's position based on its velocity and the time delta
             for shot in shots:  # iterate through all shot sprites
                 if sprite.collision(shot):  # check for collision between asteroid and shot
-                    sprite.kill()  # remove the asteroid
+                    sprite.split()  # split the asteroid in two smaller asteroids
                     shot.kill()  # remove the shot
                     break  # stop checking for more collisions
             if sprite.collision(player): # check for collision with player
