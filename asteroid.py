@@ -1,4 +1,5 @@
 import pygame  # import the pygame module for game development
+import random  # import the random module for generating random numbers
 
 from circleshape import CircleShape
 from constants import *  # import all constants from the constants module
@@ -19,4 +20,4 @@ class Asteroid(CircleShape): # Inherit from CircleShape
         if self.radius <= ASTEROID_MIN_RADIUS:
             self.kill()  # Remove the asteroid if it is too small
             return  # Do not split if the asteroid is too small
-            
+        
