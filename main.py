@@ -54,7 +54,7 @@ def main():
             sprite.draw(screen)  # draw each object on the screen
         pygame.display.flip()  # update the display
 
-    pygame.quit() # clean up and close the game window
+    pygame.quit()  # clean up and close the game window
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__":  # Check if this script is being run directly
+    main()  # Start the game
